@@ -1,0 +1,23 @@
+{
+    "base": {
+        "app_name": "kmeans",
+        "url": "http://192.168.56.101/kmeans",
+        "assets": "http://192.168.56.101/kmeans/public"
+    },
+    "env": {
+        "name": "dev",
+        "debug": true
+    },
+    "mysql": {
+        "database_type": "mysql",
+        "database_name": "kmeans_db",
+        "server": "localhost",
+        "username": "root",
+        "password": "12345"
+    },
+    "security": {
+        "defuse_key": "def00000e5e25590e9ada177251a0c5eed85ad1970e24f058fb7e98e698a4c62fc1c65a1b8bd124f3c134ba844c77fea8587565339b7146c0f69326fb556080c44a142a4",
+        "hash_key": "lrYyMIz7uH66V9HJjzG6ivD32SH55BVg",
+        "jwt_key": "05MNYv12RdqGGGf9KywmcrSqVzSBY3jN"
+    }
+}

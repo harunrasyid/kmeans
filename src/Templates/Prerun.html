@@ -1,0 +1,61 @@
+{% spaceless %}
+{% include 'Partial/Header.html' %}
+<div class="wrapper">
+  <div class="rowsection">
+    <div class="rowsection-main">
+      <section class="datatable">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 50px;">Nomor</th>
+              <th class="text-left" style="max-width: 500px;">Jenis Teh</th>
+              <th>Warna</th>
+              <th>Warna Air Seduhan</th>
+              <th>Ampas</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for item in data %}
+            <tr>
+              <td style="width: 50px;">{{ loop.index }}</td>
+              <td class="text-left"  style="max-width: 500px;">{{ item.category | e }}</td>
+              <td>{{ item.warna | e }}</td>
+              <td>{{ item.warna_seduhan | e }}</td>
+              <td>{{ item.ampas | e }}</td>
+            </tr>  
+          {% endfor %}
+          </tbody>
+        </table>
+      </section>
+    </div>
+    <div class="rowsection-side">
+      <div class="dataform">
+        <header>
+          <h3>Tentukan Centroid</h3>
+        </header>
+        <form action="{{ url('initiate') }}" method="POST">
+          <div class="dataform-instruction">
+            Masukkan tiga centroid dengan format : &lt;warna&gt;, &lt;warna seduhan&gt;, &lt;ampas&gt;
+          </div>
+          <div class="dataform-item">
+            Centroid 1 : 40, 33, 5
+            <input type="hidden" name="centroid_0" value="40, 33, 5" / >
+          </div>
+          <div class="dataform-item">
+            Centroid 2 : 30, 25, 3
+            <input type="hidden" name="centroid_1" value="30, 25, 3" / >
+          </div>
+          <div class="dataform-item">
+            Centroid 3 : 20, 9, 1
+            <input type="hidden" name="centroid_2" value="20, 9, 1" / >
+          </div>
+          <div class="dataform-item">
+            <button type="submit" class="button">Menuju langkah berikutnya &raquo;</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% include 'Partial/Footer.html' %}
+{% endspaceless %}

@@ -1,0 +1,52 @@
+{% spaceless %}
+{% include 'Partial/Header.html' %}
+<div class="wrapper">
+  <div class="rowsection">
+    <div class="rowsection-main">
+      <section class="datatable">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 50px;">Nomor</th>
+              <th class="text-left" style="max-width: 500px;">Jenis Teh</th>
+              <th>Bentuk Partikel</th>
+              <th>Warna</th>
+              <th>Warna Air Seduhan</th>
+              <th>Ampas</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for item in data %}
+            <tr>
+              <td style="width: 50px;">{{ loop.index }}</td>
+              <td class="text-left"  style="max-width: 500px;">{{ item.jenis | e }}</td>
+              <td>{{ item.bentuk | e }}</td>
+              <td>{{ item.warna | e }}</td>
+              <td>{{ item.warna_seduhan | e }}</td>
+              <td>{{ item.ampas | e }}</td>
+            </tr>  
+          {% endfor %}
+          </tbody>
+        </table>
+      </section>
+    </div>
+    <div class="rowsection-side">
+      <div class="dataform">
+        <header>
+          <h3>Data awal</h3>  
+        </header>
+        <div class="dataform-instruction">
+          Berikut adalah data awal yang akan dicluster <br /><br />
+        </div>
+        <div class="dataform-item">
+          <a 
+            class="button" 
+            href="{{ url('prerun') }}">Menuju langkah berikutnya &raquo;
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% include 'Partial/Footer.html' %}
+{% endspaceless %}

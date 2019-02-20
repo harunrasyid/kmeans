@@ -1,0 +1,59 @@
+{% spaceless %}
+{% include 'Partial/Header.html' %}
+<div class="wrapper">
+  <div class="rowsection">
+    <div class="rowsection-main">
+      <section class="datapanel">
+        <div class="datapanel-wrap">
+          <header>
+            <h3>Hasil klasifikasi untuk centroid {{ selected_cluster }} - {{ centroid.str }} </h3>
+          </header>
+          <div class="clearfix"></div>
+        </div>
+      </section>
+      <section class="datatable">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 50px;">Nomor</th>
+              <th class="text-left" style="max-width: 500px;">Jenis Teh</th>
+              <th>Warna</th>
+              <th>Warna Air Seduhan</th>
+              <th>Ampas</th>
+              <th>
+                Jarak dari Centroid 1<br />
+                ({{ centroid.arr.0|round(2) }})
+              </th>
+              <th>
+                Jarak dari Centroid 2<br />
+                ({{ centroid.arr.1|round(2) }})
+              </th>
+              <th>
+                Jarak dari Centroid 3<br />
+                ({{ centroid.arr.2|round(2) }})
+              </th>
+              <th>Hasil Clustering</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for item in data %}
+            <tr class="row-cluster-{{ item.cluster }}">
+              <td style="width: 50px;">{{ loop.index }}</td>
+              <td class="text-left"  style="max-width: 500px;">{{ item.jenis | e }}</td>
+              <td>{{ item.column_0 | e }}</td>
+              <td>{{ item.column_1 | e }}</td>
+              <td>{{ item.column_2 | e }}</td>
+              <td>{{ item.distance_0|round(2) }}</td>
+              <td>{{ item.distance_1|round(2) }}</td>
+              <td>{{ item.distance_2|round(2) }}</td>
+              <td>{{ item.cluster | e }}</td>
+            </tr>  
+          {% endfor %}
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </div>
+</div>
+{% include 'Partial/Footer.html' %}
+{% endspaceless %}

@@ -1,0 +1,423 @@
+* {
+	margin: 0; padding: 0;
+}
+*:hover{
+	transition: background 0.3s, color 0.3s,border 0.3s;
+}
+
+body {
+	background-image:url("http://localhost/kmeans/public/images/pagalam.jpg");
+    background-position:center center;
+	text-align: center;
+	font-family: Arial, Helvetica, Verdana; 
+	font-size: 30px;
+	font-weight: bold;
+	color: #010d38;
+	
+}
+a {
+	color: #444;
+	text-decoration: none;
+}
+a:hover {
+	color: #2ecc71;
+}
+img {
+	border: 0;
+}
+
+.wrap {
+	display: block;
+	margin: 20px;
+}
+
+.break {
+	font-size: 0;
+	width: 0; height: 0;
+	clear: both;
+}
+.text-left {
+	text-align: left !important;
+}
+.text-right {
+	text-align: right !important;
+}
+.text-center {
+	text-align: center !important;
+}
+.hidden {
+	display: none;
+}
+.margin-vertical {
+	margin: 20px 0;
+}
+
+.clearfix {
+	clear:both;
+	height: 0;
+}
+
+.fullwidth {
+	width: 100%;
+	display: inline-block;
+}
+
+.float-right {
+	float: right;
+}
+
+.float-left {
+	float: left;
+}
+
+/** BEGIN wrapper **/
+.wrapper {
+	display: inline-block;
+	width: 100%;
+	background: rgba(255,255,255,0.9);
+}
+/** END wrapper **/
+
+.header {
+	display: inline-block;
+	width: 100%;
+	border-bottom: 1px solid #DADADA;
+	background-color: #F9F9F9;
+}
+
+.header-logo {
+	margin: 15px;
+	display: inline-block;
+	float: left;
+}
+
+.header-logo img{
+	height: 50px;
+	float: left;
+}
+
+.header-title {
+	float: left;
+	margin: 10px 15px;
+	text-align: left;
+	font-style: italic;
+	font-size: 14px;
+	color: #000;
+}
+
+.header-title a:hover{
+	color: #000;
+}
+
+.header-logo h1 {
+	font-style: normal;
+	font-size: 20px;
+	font-weight: lighter;
+}
+
+ul.header-nav {
+	display: inline-block;
+	float: right;
+	margin-top: 35px;
+	list-style: none;
+}
+
+ul.header-nav li {
+	float: left;
+	display: inline-block;
+	margin-right: 25px;
+}
+
+ul.header-nav li a{
+	display:block;
+	text-transform: uppercase;
+	font-size: 16px;
+	color: #000;
+}
+
+.rowsection {
+	display: table;
+	width: 100%;
+}
+
+.rowsection-main, .rowsection-side {
+	display: table-cell;
+	vertical-align: top;
+}
+
+.rowsection-side {
+	width: 300px;
+}
+
+/** BEGIN button **/
+.button {
+	background: #3498db;
+	background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+	background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+	background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+	background-image: -o-linear-gradient(top, #3498db, #2980b9);
+	background-image: linear-gradient(to bottom, #3498db, #2980b9);
+	-webkit-border-radius: 3;
+	-moz-border-radius: 3;
+	border-radius: 3px;
+	text-shadow: 1px 0 0 #1f628d;
+	color: #ffffff;
+	font-size: 16px;
+	padding: 10px 20px 10px 20px;
+	border: solid #1f628d 0px;
+	text-decoration: none;
+}
+
+.button:hover {
+	color: #FFFFFF !important;
+	background: #3cb0fd;
+	background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+	text-decoration: none;
+}/** END button **/
+
+/** BEGIN table **/
+.datatable {
+	display: block;
+	margin: 20px 0;
+	margin-left: 0;
+}
+
+.datatable header{
+	text-align: left;
+	font-size: 16px;
+	margin-bottom: 20px;
+}
+
+.datatable table {
+    border-collapse: collapse;
+	width: 100%;
+}
+
+.datatable tr.row-cluster-M1 {
+	background: yellow
+}
+
+.datatable tr.row-cluster-M2 {
+	background: greenyellow
+}
+
+.datatable tr.row-cluster-M3 {
+	background: orange
+}
+
+
+.datatable table td, .datatable table th {
+    padding: 8px 5px;
+    font-size: 12px;
+	text-align: center;
+	border-bottom: 1px solid #DADADA;
+}
+
+.datatable table td a{
+	color: rgba(45, 3, 199, 0.699);
+	font-weight: bold;
+}
+
+.datatable table td a:hover {
+	text-decoration: underline;
+}
+
+.datatable-button {
+	float: left;
+	margin-left: 10px;
+}
+
+.datatable-button span{
+	color: #565656;
+	font-size: 18px;
+}
+
+.datatable-button a:hover {
+	color: #999999;
+}
+
+.datatable-button .item-take span{
+	color: green;
+}
+
+.datatable-button .item-release span{
+	color: red;
+}
+/** END table **/
+
+/** BEGIN panel **/
+.panel {
+	display: block;
+	border-bottom: 1px solid #DADADA;
+}
+
+.panel-wrap {
+	margin: 20px;
+}
+
+.panel header, .panel .panel-item {
+	margin-right: 20px;	
+}
+
+/** END filter **/
+
+/** BEGIN form **/
+.dataform{
+	text-align: left;
+	font-size: 14px;
+	margin-top: 20px;
+	margin-left: 10px;
+	display: inline-block;
+}
+
+.dataform header {
+	margin-bottom: 5px;
+}
+
+.dataform h3 {
+	font-size: 18px;
+}
+
+.dataform-item {
+	margin: 10px 0;
+}
+
+.dataform-item input{
+	padding: 8px;
+	width: 90%;
+}
+/** END form **/
+	
+/** BEGIN datapanel **/
+.datapanel {
+	border-bottom: 1px solid #DADADA;
+	display: inline-block;
+	width: 100%
+}
+
+.datapanel header {
+	text-align: left;
+	margin-bottom: 10px;
+}
+
+.datapanel header h3{
+	font-size: 16px;
+}
+
+.datapanel-wrap {
+	margin: 20px;
+	display: block;
+}
+
+.datapanel ul {
+	float: left;
+	width: 33%;
+	display: inline-block;
+	list-style: none;
+	text-align: left;
+}
+
+.datapanel ul li{
+	font-size: 14px;
+	line-height: 25px;
+}
+
+.datapanel-result {
+	margin: 30px 0;
+	text-align: center;
+}
+
+.datapanel-final {
+	background-color: #FFDDDD;
+	font-size: 14px;
+	color: red;
+	padding: 15px;
+	display: block;
+	border: 1px solid #FF0000;
+}
+
+.datapanel-result {
+	display: inline-block;
+	width: 100%;	
+	text-align: center;
+	margin: 0;
+}
+
+.datapanel-result ul {
+	list-style: none;
+	display: table;
+	margin: 10px auto;
+	width: auto;
+}
+
+.datapanel-result li{
+	display: table-cell;
+	padding: 10px 20px;
+}
+/** END datapanel **/
+
+
+/** BEGIN login **/
+.form {
+	margin: 100px auto;
+}
+
+.form img {
+	height: 70px;
+	margin-bottom: 15px;
+}
+
+.form header {
+	margin: 10px 0 20px;
+	font-size: 16px;
+	line-height: 150%;
+}
+
+.form header h3 {
+	font-size: 24px;
+	font-weight: lighter;
+	margin-bottom: 10px;
+}
+
+.form-row {
+	margin: 20px 0 0;
+}
+
+.form-row input {
+	padding: 10px;
+	font-size: 14px;
+	-webkit-border-radius: 3;
+	-moz-border-radius: 3;
+	border-radius: 3px;
+	border: none;
+	background-color: #DADADA;
+	min-width: 300px;
+}
+
+.form-row button {
+	min-width: 300px;
+}
+/** END login **/
+
+/** BEGIN welcome **/
+.welcome {
+	text-align: left;
+	margin : 20px 10px;
+	font-size: 14px;
+	line-height: 150%;
+}
+
+.welcome h1 {
+	font-size: 20px;
+	font-weight: lighter;
+	margin: 10px 0;
+}
+
+.welcome p {
+	margin-bottom: 20px;
+}
+/** END welcome **/

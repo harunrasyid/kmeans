@@ -1,0 +1,158 @@
+{% spaceless %}
+{% include 'Partial/Header.html' %}
+<div class="wrapper">
+  <div class="rowsection">
+    <div class="rowsection-main">
+      <section class="datapanel">
+        <div class="datapanel-wrap">
+          <header>
+            <h3>Iterasi ke - {{ iteration }} </h3>
+          </header>
+          <ul>
+            <li>Nilai Centroid 1 : <b>{{ centroid.current.0|round(2) }}</b></li>
+            <li>Jumlah data dalam cluster : <b>{{ means.means_0.count }}</b></li>
+            <li>Nilai Total Parameter 1 : <b>{{ means.means_0.value.0 }}</b></li>
+            <li>Nilai Total Parameter 2 : <b>{{ means.means_0.value.1 }}</b></li>
+            <li>Nilai Total Parameter 3 : <b>{{ means.means_0.value.2 }}</b></li>
+          </ul>
+          <ul>
+            <li>Nilai Centroid 2 : <b>{{ centroid.current.1|round(2) }}</b></li>
+            <li>Jumlah data dalam cluster : <b>{{ means.means_1.count }}</b></li>
+            <li>Nilai Total Parameter 1 : <b>{{ means.means_1.value.0 }}</b></li>
+            <li>Nilai Total Parameter 2 : <b>{{ means.means_1.value.1 }}</b></li>
+            <li>Nilai Total Parameter 3 : <b>{{ means.means_1.value.2 }}</b></li>
+          </ul>
+          <ul>
+            <li>Nilai Centroid 3 : <b>{{ centroid.current.2|round(2) }}</b></li>
+            <li>Jumlah data dalam cluster : <b>{{ means.means_2.count }}</b></li>
+            <li>Nilai Total Parameter 1 : <b>{{ means.means_2.value.0 }}</b></li>
+            <li>Nilai Total Parameter 2 : <b>{{ means.means_2.value.1 }}</b></li>
+            <li>Nilai Total Parameter 3 : <b>{{ means.means_2.value.2 }}</b></li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+      </section>
+      <section class="datapanel">
+        <div class="datapanel-wrap">
+          <header>
+            <h3>Iterasi berikutnya (ke - {{ iteration + 1 }}) </h3>
+          </header>
+          <ul>
+            <li>Nilai Centroid 1: <b>{{ centroid.next.0|round(2) }}</b></li>
+          </ul>
+          <ul>
+            <li>Nilai Centroid 2: <b>{{ centroid.next.1|round(2) }}</b></li>
+          </ul>
+          <ul>
+            <li>Nilai Centroid 3: <b>{{ centroid.next.2|round(2) }}</b></li>
+          </ul>
+          <div class="clearfix"></div>
+          <div class="datapanel-result">
+          {% if centroid.need_next %}
+            <br /><br />
+            <a class="button" href="{{ url('iteration', {
+              'id': id,
+              'iteration': iteration
+            }) }}">Menuju step berikutnya &raquo;</a>  
+          {% else %}
+            <div class="datapanel-final">
+              Nilai centroid tidak berubah. Hasil sudah final. Tidak membutuhkan step berikutnya.
+            </div>  
+
+            <div class="datapanel-result">
+              <ul>
+                <li>
+                  <a 
+                    href="{{ url('result', {
+                    'id': id,
+                    'selectedCluster': 'M1'
+                  }) }}" 
+                    target="_blank"
+                    class="button">
+                    Tampilkan hasil Clustering M1
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="{{ url('result', {
+                    'id': id,
+                    'selectedCluster': 'M2'
+                  }) }}" 
+                    target="_blank"
+                    class="button">
+                    Tampilkan hasil Clustering M2
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="{{ url('result', {
+                    'id': id,
+                    'selectedCluster': 'M3'
+                  }) }}" 
+                    target="_blank"
+                    class="button">
+                    Tampilkan hasil Clustering M3
+                  </a>
+                </li>
+              <li>
+                <a 
+                  href="{{ url('download', {
+                    'id': id, 'iteration': iteration, 'selectedCluster':'M1', 'selectedCluster':'M2', 'selectedCluster':'M3', 'result':'result'
+                  }) }}" 
+                  target="_blank"
+                  class="button">
+                  Download hasil file .xlsx
+                </a>
+              </li>
+              </ul>
+            {% endif %}
+            </div>
+          </div>
+      </section>
+        
+      <section class="datatable">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 50px;">Nomor</th>
+              <th class="text-left" style="max-width: 500px;">Jenis Teh</th>
+              <th>Warna</th>
+              <th>Warna Air Seduhan</th>
+              <th>Ampas</th>
+              <th>
+                Jarak dari Centroid 1<br />
+                ({{ centroid.current.0|round(2) }})
+              </th>
+              <th>
+                Jarak dari Centroid 2<br />
+                ({{ centroid.current.1|round(2) }})
+              </th>
+              <th>
+                Jarak dari Centroid 3<br />
+                ({{ centroid.current.2|round(2) }})
+              </th>
+              <th>Hasil Clustering</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for item in data %}
+            <tr class="row-cluster-{{ item.cluster }}">
+              <td style="width: 50px;">{{ loop.index }}</td>
+              <td class="text-left"  style="max-width: 500px;">{{ item.category | e }}</td>
+              <td>{{ item.column_0 | e }}</td>
+              <td>{{ item.column_1 | e }}</td>
+              <td>{{ item.column_2 | e }}</td>
+              <td>{{ item.distance_0|round(2) }}</td>
+              <td>{{ item.distance_1|round(2) }}</td>
+              <td>{{ item.distance_2|round(2) }}</td>
+              <td>{{ item.cluster | e }}</td>
+            </tr>  
+          {% endfor %}
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </div>
+</div>
+{% include 'Partial/Footer.html' %}
+{% endspaceless %}

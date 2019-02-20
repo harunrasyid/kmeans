@@ -1,0 +1,21 @@
+{% spaceless %}
+{% include 'Partial/Header.html' %}
+<div class="container">
+  <section class="form">
+    <header>
+      <h3>Import database xls </h3>
+    </header>
+    <form action="{{ 'base.url'|config }}/import" method="POST" enctype="multipart/form-data">
+      <div class="form-row">
+        <input type="file" name="xlsx_file" placeholder="Yur xlsx file" />
+      </div>
+      <div class="form-row">
+        <button type="submit" class="button" name="submit">
+          Import
+        </button>
+      </div>
+    </form>
+  </section>
+</div>
+{% include 'Partial/Footer.html' %}
+{% endspaceless %}

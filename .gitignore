@@ -1,0 +1,8 @@
+/cache/*
+/log/*
+/vendor/*
+/resource/kmeans/*
+/resource/upload/*
+/resource/download/*
+.env
+*.DS_Store

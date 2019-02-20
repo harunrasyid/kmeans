@@ -1,0 +1,39 @@
+{% spaceless %}
+<html>
+  <head>
+    <title>Aplikasi Kmeans</title>
+    <link rel="stylesheet" href="{{ 'css/style.css' | assets }}" />
+  </head>
+  <body>
+    <div class="wrap">
+      <section class="form">
+        <div>
+          <img src="{{ 'images/site-logo.png' | assets }}" alt="logo ptpn7" />
+        </div>
+        <header>
+          <h3>Sistem K-Means Clustering</h3>
+          Sistem cerdas data clustering untuk klasifikasi teh hitam berdasarkan <br />kualitas dengan metode K-Means Clustering.
+        </header>
+        {% if message != null %}
+        <div>{{ message }}</div>
+        {% endif %}
+        <form action="{{ 'base.url'|config }}/login" method="POST">
+          <div class="form-row">
+            <input type="text" name="username" placeholder="Username" />
+          </div>
+          <div class="form-row">
+            <input type="password" name="password" placeholder="Password" />
+          </div>
+          <div class="form-row">
+            <button type="submit" class="button" name="submit">
+              Login
+            </button>
+          </div>
+        </form>
+      </section>
+    
+    </div>
+    <script src="{{ 'js/index.bundle.js' | assets }}"></script>
+  </body>
+</html>
+{% endspaceless %}
